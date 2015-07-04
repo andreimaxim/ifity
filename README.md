@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/andreimaxim/ifity/badges/gpa.svg)](https://codeclimate.com/github/andreimaxim/ifity)
 [![Test Coverage](https://codeclimate.com/github/andreimaxim/ifity/badges/coverage.svg)](https://codeclimate.com/github/andreimaxim/ifity/coverage)
 [![Dependency Status](https://gemnasium.com/andreimaxim/ifity.svg)](https://gemnasium.com/andreimaxim/ifity)
-
+[![Inline docs](http://inch-ci.org/github/andreimaxim/ifity.svg?branch=master)](http://inch-ci.org/github/andreimaxim/ifity)
 
 # ifity
 
