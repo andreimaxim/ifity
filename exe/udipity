@@ -1,11 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'bundler'
-Bundler.setup
+require 'bundler/setup'
+require 'udipity'
 
-require 'ifity'
-
-options = Ifity::CLI.parse(ARGV)
+options = Udipity::CLI.parse(ARGV)
 
 mode = options.delete(:mode)
 

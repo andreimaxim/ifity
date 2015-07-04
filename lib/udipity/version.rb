@@ -1,3 +1,3 @@
-module Ifity
+module Udipity
   VERSION = '0.0.1'
 end

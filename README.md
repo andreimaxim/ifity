@@ -1,18 +1,18 @@
-[![Build Status](https://travis-ci.org/andreimaxim/ifity.svg)](https://travis-ci.org/andreimaxim/ifity)
-[![Code Climate](https://codeclimate.com/github/andreimaxim/ifity/badges/gpa.svg)](https://codeclimate.com/github/andreimaxim/ifity)
-[![Test Coverage](https://codeclimate.com/github/andreimaxim/ifity/badges/coverage.svg)](https://codeclimate.com/github/andreimaxim/ifity/coverage)
-[![Dependency Status](https://gemnasium.com/andreimaxim/ifity.svg)](https://gemnasium.com/andreimaxim/ifity)
-[![Inline docs](http://inch-ci.org/github/andreimaxim/ifity.svg?branch=master)](http://inch-ci.org/github/andreimaxim/ifity)
+[![Build Status](https://travis-ci.org/andreimaxim/udipity.svg?branch=master)](https://travis-ci.org/andreimaxim/udipity)
+[![Code Climate](https://codeclimate.com/github/andreimaxim/udipity/badges/gpa.svg)](https://codeclimate.com/github/andreimaxim/udipity)
+[![Test Coverage](https://codeclimate.com/github/andreimaxim/udipity/badges/coverage.svg)](https://codeclimate.com/github/andreimaxim/udipity/coverage)
+[![Dependency Status](https://gemnasium.com/andreimaxim/udipity.svg)](https://gemnasium.com/andreimaxim/udipity)
+[![Inline docs](http://inch-ci.org/github/andreimaxim/udipity.svg?branch=master)](http://inch-ci.org/github/andreimaxim/udipity)
 
-# ifity
+# udipity
 
 This is a simple gem that provides three tools:
 
 * a server that allows UPD connections on a specific port
-* a client that connects to the above server and sends state
-* a real-time monitor for the server clients
+* a client library that connects to the above server and sends state
+* a almost real-time monitor for known clients
 
-The clients authenticate, get a task they need to work on, report back with 
+The clients connect, get a task they need to work on, report back with 
 their progress and disconnect. The monitor is supposed to show all that
 information in real time.
 
@@ -20,7 +20,7 @@ information in real time.
 
 You need to install the gem using the following command:
 
-    $ gem install ifity
+    $ gem install udipity
 
 The server and the monitor require a Redis server to be running on localhost
 on port 6379. 
@@ -29,25 +29,11 @@ on port 6379.
 
 For the server:
 
-    $ ifity
-
-or
-
-    $ ifity --server
+    $ udipity
 
 For the monitor:
 
-    $ ifity --monitor
-
-For a client:
-
-    $ ifity --client -h 192.168.0.100 -p 9000 -n aName
-
-The client takes three options:
-
-* `-h` the host or IP address of the server
-* `-p` the port of the server
-* `--auth` the authentication string
+    $ udipity --monitor
 
 ## Development
 
@@ -57,7 +43,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/ifity/fork )
+1. Fork it ( https://github.com/[my-github-username]/udipity/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

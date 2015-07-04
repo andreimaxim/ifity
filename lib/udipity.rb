@@ -8,28 +8,28 @@ require 'redis'
 require 'rainbow'
 require 'rainbow/ext/string'
 
-require 'ifity/version'
-require 'ifity/cli'
+require 'udipity/version'
+require 'udipity/cli'
 
 # Main services
-require 'ifity/server'
-require 'ifity/client'
-require 'ifity/monitor'
-require 'ifity/loader'
+require 'udipity/server'
+require 'udipity/client'
+require 'udipity/monitor'
+require 'udipity/loader'
 
 # Commands
-require 'ifity/command_builder'
-require 'ifity/command'
-require 'ifity/command/hello'
-require 'ifity/command/ping'
-require 'ifity/command/exit'
+require 'udipity/command_builder'
+require 'udipity/command'
+require 'udipity/command/hello'
+require 'udipity/command/ping'
+require 'udipity/command/exit'
 
 # Plumbing et al
-require 'ifity/datagram'
-require 'ifity/udp_handler'
-require 'ifity/storage'
+require 'udipity/datagram'
+require 'udipity/udp_handler'
+require 'udipity/storage'
 
-module Ifity
+module Udipity
   TICK = 1
   LONG_TICK = 5
 

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in ifity.gemspec
+# Specify your gem's dependencies in udipity.gemspec
 gemspec
 
 gem 'codeclimate-test-reporter', group: :test, require: nil

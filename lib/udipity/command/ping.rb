@@ -1,4 +1,4 @@
-class Ifity::Command::Ping < Ifity::Command
+class Udipity::Command::Ping < Udipity::Command
   
   CMD = 'ping'
 

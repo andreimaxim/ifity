@@ -1,7 +1,7 @@
-class Ifity::UDPHandler < EventMachine::Connection
+class Udipity::UDPHandler < EventMachine::Connection
 
   def receive_data data
-    Ifity::Datagram.new(data).run callback
+    Udipity::Datagram.new(data).run callback
   end
 
   private

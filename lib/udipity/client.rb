@@ -1,4 +1,4 @@
-class Ifity::Client
+class Udipity::Client
 
   attr_reader :id
   attr_accessor :timestamp
@@ -14,9 +14,9 @@ class Ifity::Client
       duration = opts.delete(:duration) || 60
       ping_interval = 0.2
 
-      client = Ifity::Client.new nil, opts
+      client = Udipity::Client.new nil, opts
 
-      Ifity::logger.info "Client #{client.id} started"
+      Udipity::logger.info "Client #{client.id} started"
 
       client.connect
 
@@ -44,24 +44,24 @@ class Ifity::Client
   end
 
   def connect
-    run Ifity::Command::Hello.new(self).syn
+    run Udipity::Command::Hello.new(self).syn
   end
 
   def disconnect
     if buggy?
-      Ifity::logger.info "Client #{id} is buggy!".color(:red)
+      Udipity::logger.info "Client #{id} is buggy!".color(:red)
     else
-      Ifity::logger.info "Client #{id} disconnected"
-      run Ifity::Command::Exit.new(self).syn
+      Udipity::logger.info "Client #{id} disconnected"
+      run Udipity::Command::Exit.new(self).syn
     end
   end
 
   def ping
-    run Ifity::Command::Ping.new(self).syn
+    run Udipity::Command::Ping.new(self).syn
   end
 
   def run cmd
-    Ifity::logger.debug cmd
+    Udipity::logger.debug cmd
     socket.send cmd, 0, host, port
     cmd
   end

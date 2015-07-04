@@ -1,9 +1,9 @@
-class Ifity::Datagram
+class Udipity::Datagram
 
   attr_reader :cmd
 
   def initialize data
-    @cmd = Ifity::CommandBuilder.from_datagram data
+    @cmd = Udipity::CommandBuilder.from_datagram data
     @cmd.run
   end
 
@@ -11,7 +11,7 @@ class Ifity::Datagram
   def run defer
     EM.defer {
       if cmd.needs_ack?
-        Ifity::logger.debug cmd.ack
+        Udipity::logger.debug cmd.ack
         defer.succeed cmd.ack
       end
     }

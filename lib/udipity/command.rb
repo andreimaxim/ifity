@@ -1,4 +1,4 @@
-class Ifity::Command
+class Udipity::Command
 
   CMD = 'command'
   
@@ -33,7 +33,7 @@ class Ifity::Command
   end
 
   def storage
-    Ifity::Storage.instance
+    Udipity::Storage.instance
   end
 
   def run_hooks

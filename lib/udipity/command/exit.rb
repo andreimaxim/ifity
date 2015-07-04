@@ -1,4 +1,4 @@
-class Ifity::Command::Exit < Ifity::Command
+class Udipity::Command::Exit < Udipity::Command
 
   CMD = 'exit'
   
@@ -10,7 +10,7 @@ class Ifity::Command::Exit < Ifity::Command
 
   def run_hooks
     @needs_ack = true
-    Ifity::logger.info "Client #{client.id} is properly disconnecting"
+    Udipity::logger.info "Client #{client.id} is properly disconnecting"
     storage.remove client
   end
 end

@@ -1,7 +1,7 @@
-class Ifity::Loader
+class Udipity::Loader
   class << self
     def start opts = {}
-      loader = Ifity::Loader.new opts
+      loader = Udipity::Loader.new opts
       loader.start
     end
   end
@@ -28,7 +28,7 @@ class Ifity::Loader
 
         sleep offset
 
-        Ifity::Client.start @opts.merge({ duration: duration, buggy: buggy_client % 4 == 0})
+        Udipity::Client.start @opts.merge({ duration: duration, buggy: buggy_client % 4 == 0})
       end
     end
 

@@ -1,4 +1,4 @@
-class Ifity::CLI
+class Udipity::CLI
 
   DEFAULT_HOST = '0.0.0.0'
   DEFAULT_PORT = 9000
@@ -11,21 +11,21 @@ class Ifity::CLI
     def parse(argv)
       options = {}
       defaults = { 
-        mode: Ifity::Server,
+        mode: Udipity::Server,
 
         host: DEFAULT_HOST,
         port: DEFAULT_PORT
       }
 
       opt_parser = OptionParser.new do |opts|
-        opts.banner = 'Usage: ifity <type>'
+        opts.banner = 'Usage: udipity <type>'
 
         opts.separator ''
         opts.separator 'Run options:'
 
         mode_list = MODES.join(', ')
         opts.on('--mode MODE', MODES, "Specify mode: #{mode_list}") do |m|
-          klass = "Ifity::#{m.to_s.capitalize}"
+          klass = "Udipity::#{m.to_s.capitalize}"
           options[:mode] = Object.const_get(klass)
         end
 
@@ -50,7 +50,7 @@ class Ifity::CLI
         end
 
         opts.on_tail('--version', 'Show the current version') do
-          puts Ifity::VERSION
+          puts Udipity::VERSION
           exit
         end
       end

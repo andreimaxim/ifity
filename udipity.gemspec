@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ifity/version'
+require 'udipity/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ifity"
-  spec.version       = Ifity::VERSION
+  spec.name          = "udipity"
+  spec.version       = Udipity::VERSION
   spec.authors       = ["Andrei Maxim"]
   spec.email         = ["hi@andmx.im"]
 

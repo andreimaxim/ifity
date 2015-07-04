@@ -1,4 +1,4 @@
-class Ifity::Monitor
+class Udipity::Monitor
 
   include Curses
 
@@ -7,9 +7,9 @@ class Ifity::Monitor
       Curses.init_screen
       Curses.crmode
 
-      monitor = Ifity::Monitor.new
+      monitor = Udipity::Monitor.new
 
-      EM.run { EM.add_periodic_timer(Ifity::TICK) { monitor.check } }
+      EM.run { EM.add_periodic_timer(Udipity::TICK) { monitor.check } }
 
     ensure
       Curses.close_screen
@@ -21,7 +21,7 @@ class Ifity::Monitor
   end
 
   def storage
-    @storage ||= Ifity::Storage.instance
+    @storage ||= Udipity::Storage.instance
   end
 
   def check

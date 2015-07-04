@@ -1,4 +1,4 @@
-class Ifity::CommandBuilder
+class Udipity::CommandBuilder
 
   class << self
     def from_datagram datagram = ''
@@ -11,15 +11,15 @@ class Ifity::CommandBuilder
     end
 
     def create_command cmd, id,  opts = {}
-      klass_name = "Ifity::Command::#{cmd.capitalize}"
+      klass_name = "Udipity::Command::#{cmd.capitalize}"
 
       klass = if Object.const_defined? klass_name
                 Object.const_get klass_name
               else
-                Ifity::Command
+                Udipity::Command
               end
 
-      klass.new Ifity::Client.new(id), opts
+      klass.new Udipity::Client.new(id), opts
     end
   end
 end

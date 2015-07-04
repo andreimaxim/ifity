@@ -1,7 +1,7 @@
-class Ifity::Storage
+class Udipity::Storage
   include Singleton
 
-  NAMESPACE = 'ifity'
+  NAMESPACE = 'udipity'
   CLIENT_LIST = 'clients'
   CLIENT_DATA = 'data'
 
@@ -10,20 +10,20 @@ class Ifity::Storage
   end
 
   def clean_slate
-    Ifity::logger.debug "Flushing database..."
+    Udipity::logger.debug "Flushing database..."
 
     store.del client_list
     store.del client_data
   end
 
   def add client
-    Ifity::logger.info "Adding client #{client.id}"
+    Udipity::logger.info "Adding client #{client.id}"
 
     store.sadd(client_list, client.id) && ping(client)
   end
 
   def ping client
-    Ifity::logger.debug "Ping from client #{client.id}"
+    Udipity::logger.debug "Ping from client #{client.id}"
 
     timestamp = Time.now
 
@@ -37,15 +37,15 @@ class Ifity::Storage
   end
 
   def remove client
-    id = client.is_a?(Ifity::Client) ? client.id : client
-    Ifity::logger.debug "Removing client #{id}"
+    id = client.is_a?(Udipity::Client) ? client.id : client
+    Udipity::logger.debug "Removing client #{id}"
 
     store.srem client_list, id
     store.hdel client_data, id
   end
 
   def timestamp client
-    id = client.is_a?(Ifity::Client) ? client.id : client
+    id = client.is_a?(Udipity::Client) ? client.id : client
     store.hget client_data, id
   end
 
@@ -59,7 +59,7 @@ class Ifity::Storage
         remove(i) && next
       end
 
-      Ifity::Client.new i, timestamp: time
+      Udipity::Client.new i, timestamp: time
     end
 
     clients.compact

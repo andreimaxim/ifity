@@ -1,4 +1,4 @@
-class Ifity::Command::Hello < Ifity::Command
+class Udipity::Command::Hello < Udipity::Command
 
   CMD = 'hello'
   
