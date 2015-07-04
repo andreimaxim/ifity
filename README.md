@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/andreimaxim/ifity.svg)](https://travis-ci.org/andreimaxim/ifity)
+[![Code Climate](https://codeclimate.com/github/andreimaxim/ifity/badges/gpa.svg)](https://codeclimate.com/github/andreimaxim/ifity)
+[![Test Coverage](https://codeclimate.com/github/andreimaxim/ifity/badges/coverage.svg)](https://codeclimate.com/github/andreimaxim/ifity/coverage)
+[![Dependency Status](https://gemnasium.com/andreimaxim/ifity.svg)](https://gemnasium.com/andreimaxim/ifity)
+
+
 # ifity
 
 This is a simple gem that provides three tools:
