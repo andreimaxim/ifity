@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+Bundler.setup
+
+require 'ifity'
+
+options = Ifity::CLI.parse(ARGV)
+
+mode = options.delete(:mode)
+
+begin
+  mode.start(options)
+rescue SystemExit, Interrupt
+  # Do nothing, just avoid the stacktrace caused by the interrupt
+end

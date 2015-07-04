@@ -1,4 +1,4 @@
-# Ifity
+# ifity
 
 This is a simple gem that provides three tools:
 
@@ -23,19 +23,19 @@ on port 6379.
 
 For the server:
 
-    $ iffity
+    $ ifity
 
 or
 
-    $ iffity --server
+    $ ifity --server
 
 For the monitor:
 
-    $ iffity --monitor
+    $ ifity --monitor
 
 For a client:
 
-    $ iffity --client -h 192.168.0.100 -p 9000 --auth superP4ss
+    $ ifity --client -h 192.168.0.100 -p 9000 -n aName
 
 The client takes three options:
 
