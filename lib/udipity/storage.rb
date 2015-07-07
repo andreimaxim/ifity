@@ -10,20 +10,20 @@ class Udipity::Storage
   end
 
   def clean_slate
-    Udipity::logger.debug "Flushing database..."
+    Udipity.logger.debug "Flushing database..."
 
     store.del client_list
     store.del client_data
   end
 
   def add client
-    Udipity::logger.info "Adding client #{client.id}"
+    Udipity.logger.info "Adding client #{client.id}"
 
     store.sadd(client_list, client.id) && ping(client)
   end
 
   def ping client
-    Udipity::logger.debug "Ping from client #{client.id}"
+    Udipity.logger.debug "Ping from client #{client.id}"
 
     timestamp = Time.now
 
@@ -38,7 +38,7 @@ class Udipity::Storage
 
   def remove client
     id = client.is_a?(Udipity::Client) ? client.id : client
-    Udipity::logger.debug "Removing client #{id}"
+    Udipity.logger.debug "Removing client #{id}"
 
     store.srem client_list, id
     store.hdel client_data, id

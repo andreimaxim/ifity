@@ -1,12 +1,9 @@
 require 'optparse'
 require 'singleton'
 require 'securerandom'
-require 'curses'
 require 'eventmachine'
 require 'logger'
 require 'redis'
-require 'rainbow'
-require 'rainbow/ext/string'
 
 require 'udipity/version'
 require 'udipity/cli'
@@ -14,8 +11,6 @@ require 'udipity/cli'
 # Main services
 require 'udipity/server'
 require 'udipity/client'
-require 'udipity/monitor'
-require 'udipity/loader'
 
 # Commands
 require 'udipity/command_builder'
@@ -30,11 +25,23 @@ require 'udipity/udp_handler'
 require 'udipity/storage'
 
 module Udipity
+
   TICK = 1
   LONG_TICK = 5
 
+  DEFAULT_LOG_LEVEL = Logger::INFO
+  DEFAULT_LOG_OUTPUT = STDOUT
+  DEFAULT_LOG_FORMAT = proc { |_, date, msg| "#{date}: #{msg}\n" }
+
   def self.logger
     @logger ||= begin
+                  level  = Udipity.config :log_level
+                  output = Udipity.config :log_output
+                  format = Udipity.config :log_format
+
+                  l = Logger.new(output)
+                  l.level = Logger::INFO
+
                   l = Logger.new(STDOUT)
                   l.level = Logger::INFO
                   l.formatter = proc { |_, date, _, msg| "#{date}: #{msg}\n" }

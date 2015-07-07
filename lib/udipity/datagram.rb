@@ -11,7 +11,7 @@ class Udipity::Datagram
   def run defer
     EM.defer {
       if cmd.needs_ack?
-        Udipity::logger.debug cmd.ack
+        Udipity.logger.debug cmd.ack
         defer.succeed cmd.ack
       end
     }

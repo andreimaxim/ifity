@@ -16,7 +16,7 @@ class Udipity::Client
 
       client = Udipity::Client.new nil, opts
 
-      Udipity::logger.info "Client #{client.id} started"
+      Udipity.logger.info "Client #{client.id} started"
 
       client.connect
 
@@ -49,9 +49,9 @@ class Udipity::Client
 
   def disconnect
     if buggy?
-      Udipity::logger.info "Client #{id} is buggy!".color(:red)
+      Udipity.logger.info "Client #{id} is buggy!".color(:red)
     else
-      Udipity::logger.info "Client #{id} disconnected"
+      Udipity.logger.info "Client #{id} disconnected"
       run Udipity::Command::Exit.new(self).syn
     end
   end
@@ -61,7 +61,7 @@ class Udipity::Client
   end
 
   def run cmd
-    Udipity::logger.debug cmd
+    Udipity.logger.debug cmd
     socket.send cmd, 0, host, port
     cmd
   end

@@ -10,7 +10,7 @@ class Udipity::Command::Exit < Udipity::Command
 
   def run_hooks
     @needs_ack = true
-    Udipity::logger.info "Client #{client.id} is properly disconnecting"
+    Udipity.logger.info "Client #{client.id} is properly disconnecting"
     storage.remove client
   end
 end
