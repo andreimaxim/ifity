@@ -26,9 +26,6 @@ require 'udipity/storage'
 
 module Udipity
 
-  TICK = 1
-  LONG_TICK = 5
-
   DEFAULT_LOG_LEVEL = Logger::INFO
   DEFAULT_LOG_OUTPUT = STDOUT
   DEFAULT_LOG_FORMAT = proc { |_, date, msg| "#{date}: #{msg}\n" }
