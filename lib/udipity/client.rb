@@ -20,7 +20,6 @@ class Udipity::Client
     offset = Udipity.configuration.tick
 
     if time - timestamp > offset
-      Udipity.logger.info "#{time} - #{timestamp} > #{offset}"
       'offline'
     else
       'online'
