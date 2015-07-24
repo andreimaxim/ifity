@@ -8,7 +8,6 @@ require 'curses'
 
 Udipity.configure do |config|
   config.tick = 1
-  config.log_output = 'monitor.log'
 end
 
 class Udipity::Monitor
@@ -34,7 +33,6 @@ class Udipity::Monitor
   end
 
   def initialize
-
   end
 
   def storage
@@ -57,22 +55,23 @@ class Udipity::Monitor
         warn client_offset + i + 1, 20, client.status
       end
     end
+
+    refresh
   end
 
   def write x, y, text
-    setpos x, y; addstr text; refresh
+    setpos x, y
+    addstr text
   end
 
   def warn x, y, text
     setpos x, y
     attron(color_pair(COLOR_RED)|A_NORMAL) { addstr text }
-    refresh
   end
 
   def info x, y, text
     setpos x, y
     attron(color_pair(COLOR_GREEN)|A_NORMAL) { addstr text }
-    refresh
   end
 end
 

@@ -50,9 +50,10 @@ class Udipity::Storage
 
   def clients
     items = store.smembers client_list
-
+    data = store.hgetall(client_data).to_h
+  
     clients = items.map do |i|
-      time = Time.at(timestamp i) rescue Time.at(0)
+      time = Time.at(data[i].to_f) rescue Time.at(0)
 
       Udipity::Client.new i, timestamp: time
     end
