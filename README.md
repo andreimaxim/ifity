@@ -6,15 +6,11 @@
 
 # udipity
 
-This is a simple gem that provides three tools:
+This is a library that provides two tools:
 
-* a server that allows UPD connections on a specific port
-* a client library that connects to the above server and sends state
-* a almost real-time monitor for known clients
+* a server that accepts a specific set UDP commands
+* a client for sending UDP commands
 
-The clients connect, get a task they need to work on, report back with 
-their progress and disconnect. The monitor is supposed to show all that
-information in real time.
 
 ## Installation
 
@@ -27,13 +23,20 @@ on port 6379.
 
 ## Usage
 
-For the server:
 
-    $ udipity
+```ruby
+require 'udipity'
 
-For the monitor:
+host = '0.0.0.0' # UDP connections require an IP address
+port = 9000
 
-    $ udipity --monitor
+class Udipity::Command::Foo < Udipity::Command
+  # Add code
+end
+
+Udipity::Server.register Udipity::Command::Foo
+Udipity::Server.start host, port
+```
 
 ## Development
 

@@ -10,10 +10,9 @@ class Udipity::Datagram
   # Run any kind fo 
   def run defer
     EM.defer {
-      if cmd.needs_ack?
-        Udipity.logger.debug cmd.ack
-        defer.succeed cmd.ack
-      end
+      ack = cmd.ack
+      Udipity.logger.debug ack
+      defer.succeed ack
     }
   end
 end

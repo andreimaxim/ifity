@@ -4,10 +4,6 @@ class Udipity::Command::Ping < Udipity::Command
 
   protected
 
-  def cmd
-    CMD
-  end
-
   def run_hooks
     @needs_ack = client_available?
     storage.ping client

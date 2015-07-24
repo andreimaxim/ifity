@@ -18,8 +18,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'curses'
-  spec.add_dependency 'rainbow', '~> 2.0'
   spec.add_dependency 'redis', '~> 3.2'
   spec.add_dependency 'eventmachine', '~> 1.0'
 

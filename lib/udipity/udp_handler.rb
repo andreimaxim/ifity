@@ -6,6 +6,9 @@ class Udipity::UDPHandler < EventMachine::Connection
 
   private
   def callback
-    EM::DefaultDeferrable.new.callback { |r| send_data(r + "\n") }
+    EM::DefaultDeferrable.new.callback { |r| 
+      data = r || 'No data'
+      send_data(data + "\n")
+    }
   end
 end

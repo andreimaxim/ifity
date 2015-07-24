@@ -6,7 +6,7 @@ class Udipity::Storage
   CLIENT_DATA = 'data'
 
   def store
-    @store ||= Redis.new
+    @store ||= Redis.new(url: Udipity.configuration.redis_url)
   end
 
   def clean_slate
@@ -17,7 +17,7 @@ class Udipity::Storage
   end
 
   def add client
-    Udipity.logger.info "Adding client #{client.id}"
+    Udipity.logger.debug "Adding client #{client.id}"
 
     store.sadd(client_list, client.id) && ping(client)
   end
@@ -25,8 +25,7 @@ class Udipity::Storage
   def ping client
     Udipity.logger.debug "Ping from client #{client.id}"
 
-    timestamp = Time.now
-
+    timestamp = Time.now.to_f
     store.hset client_data, client.id,  timestamp
 
     timestamp
@@ -46,18 +45,14 @@ class Udipity::Storage
 
   def timestamp client
     id = client.is_a?(Udipity::Client) ? client.id : client
-    store.hget client_data, id
+    store.hget(client_data, id).to_f
   end
 
-  def list
+  def clients
     items = store.smembers client_list
 
     clients = items.map do |i|
-      time = Time.parse(timestamp i) rescue nil
-
-      if time.nil?
-        remove(i) && next
-      end
+      time = Time.at(timestamp i) rescue Time.at(0)
 
       Udipity::Client.new i, timestamp: time
     end

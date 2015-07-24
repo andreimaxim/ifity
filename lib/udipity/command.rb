@@ -12,6 +12,7 @@ class Udipity::Command
 
   def ack
     "ack #{cmd} #{client.id}" if needs_ack?
+    #"ack #{cmd} #{client.id}"
   end
 
   def syn
@@ -29,7 +30,7 @@ class Udipity::Command
   protected
 
   def cmd
-    CMD
+    self.class::CMD
   end
 
   def storage
