@@ -11,6 +11,18 @@ This is a library that provides two tools:
 * a server that accepts a specific set UDP commands
 * a client for sending UDP commands
 
+## Example
+
+There are three files in the `examples` folder that show how a client, a server and a monitor could be implemented. The server and the monitor require a local Redis server.
+
+In order to start them, clone the repository, run `bin/setup` then run the following commands, ideally in different terminal windows so you can watch them at the same time.
+
+```bash
+$ ruby examples/server
+$ ruby examples/monitor
+$ ruby examples/client
+```
+
 
 ## Installation
 
